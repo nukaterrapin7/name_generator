@@ -63,21 +63,33 @@ export default function ResultsPage(){
         return name;
     }
 
-    // async function saveName() {
-    //     //1. make a request to the back end at a specific route and controller
-    //     await notesAPI.addNote()
-    //     navigate('/results')
-    //     //2. The controller function needs to call a note model that will create a note with the data in the state variable
-    //     console.log(name)
-    // }
+    async function saveName() {
+        //1. make a request to the back end at a specific route and controller
+        await notesAPI.addNote()
+        navigate('/results')
+        //2. The controller function needs to call a note model that will create a note with the data in the state variable
+        console.log(generateName.name)
+    }
 
     return (
         <>        
             <h1>Results</h1>
-            {/* <p name={name} setName={setName}>{ name.first } { name.last }</p> */}
-            <button onClick={handleCheckToken}>Check When My Login Expires</button>
-            {/* <button onClick={saveName}>Save Name</button> */}
-            <button onClick={generateName}>Generate Name</button>
+            <p name={generateName.name}>
+                { generateName() } <br/>
+                { generateName() } <br/>
+                { generateName() } <br/>
+                { generateName() } <br/>
+                { generateName() } <br/>
+                { generateName() } <br/>
+                { generateName() } <br/>
+                { generateName() } <br/>
+                { generateName() } <br/>
+                { generateName() } <br/>
+            </p>
+            <button onClick={saveName}>Save Name</button>
+            <button onClick={generateName.name}>Generate Name</button>
+            <br/>
+            {/* <p name={notes}></p> */}
         </>
     )
 }
