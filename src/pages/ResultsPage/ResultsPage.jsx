@@ -5,21 +5,7 @@ import * as notesAPI from '../../utilities/notes-api'
 
 
 export default function ResultsPage(){
-
-    // const [name, setName] = useState(
-    //     {first: 'Joe', last: 'Swanson'}
-    // ) 
-    const navigate = useNavigate()
-
-    // useEffect(()=>{
-    //     console.log('Use Effect')
-    // }, [name])
-
-    async function handleCheckToken() {
-        const expDate = await userService.checkToken()
-        console.log(expDate)
-    }
-
+    const [name, setName] = useState(generateName())
     
     function getRandom(min, max) {
           return Math.floor(Math.random() * (max - min)) + min;
@@ -65,31 +51,22 @@ export default function ResultsPage(){
 
     async function saveName() {
         //1. make a request to the back end at a specific route and controller
-        await notesAPI.addNote()
-        navigate('/results')
+        await notesAPI.addNote(name)
         //2. The controller function needs to call a note model that will create a note with the data in the state variable
         console.log(generateName.name)
+    }
+
+    function getNewName() {
+        setName(generateName())
     }
 
     return (
         <>        
             <h1>Results</h1>
-            <p name={generateName.name}>
-                { generateName() } <br/>
-                { generateName() } <br/>
-                { generateName() } <br/>
-                { generateName() } <br/>
-                { generateName() } <br/>
-                { generateName() } <br/>
-                { generateName() } <br/>
-                { generateName() } <br/>
-                { generateName() } <br/>
-                { generateName() } <br/>
-            </p>
+            <p>{name}</p>
             <button onClick={saveName}>Save Name</button>
-            <button onClick={generateName.name}>Generate Name</button>
+            <button onClick={getNewName}>Generate Name</button>
             <br/>
-            {/* <p name={notes}></p> */}
         </>
     )
 }

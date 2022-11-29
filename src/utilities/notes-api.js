@@ -2,6 +2,10 @@ import sendRequest from './send-request';
 
 const BASE_URL = '/api/notes';
 
-export function addNote() {
-    return sendRequest(`${BASE_URL}/notes`, 'POST')
+export function getAll() {
+    return sendRequest(`${BASE_URL}/notes`)
+}
+
+export function addNote(name) {
+    return sendRequest(`${BASE_URL}/notes`, 'POST', {name})
 };

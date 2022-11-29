@@ -6,7 +6,8 @@ import AuthPage from '../AuthPage/AuthPage'
 // import NewOrderPage from '../NewOrderPage/NewOrderPage'
 // import ResultsPage from '../ResultsPage/ResultsPage'
 import NavBar from '../../components/NavBar/NavBar'
-import ResultsPage from '../Results Page/ResultsPage';
+import ResultsPage from '../ResultsPage/ResultsPage';
+import NotesPage from '../NotesPage/NotesPage'
 
 export default function App() {
   const [user, setUser] = useState(getUser())
@@ -19,6 +20,7 @@ export default function App() {
           <Routes>
             {/* <Route path="/orders/new" element={<NewOrderPage user={user} setUser={setUser}/>} /> */}
             <Route path="/results" element={<ResultsPage />} />
+            <Route path="/notes" element={<NotesPage />} />
             <Route path="/*" element={<ResultsPage />} />
           </Routes>
         </>
