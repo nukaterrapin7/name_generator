@@ -17,17 +17,13 @@ export default function NotesPage(){
     }, [])
     
     const notesList = notes.length ? notes.map((note) => {
-        return (
-            <p>{note.name}</p>
-            <button>Details</button>
-            <button>X</button>
-        )
+        return (<p>{note.name}</p>)
     }) : <p>Loading</p>
 
     return (
         <>        
             <h1>Notes</h1>
-            {notesList}
+            <a>{notesList}</a>
         </>
     )
 }
