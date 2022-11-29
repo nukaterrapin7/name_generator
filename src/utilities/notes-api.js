@@ -9,3 +9,7 @@ export function getAll() {
 export function addNote(name) {
     return sendRequest(`${BASE_URL}/notes`, 'POST', {name})
 };
+
+export function getOne(id) {
+    return sendRequest(`${BASE_URL}/notes/details`, 'GET', {id})
+}

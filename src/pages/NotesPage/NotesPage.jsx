@@ -1,7 +1,7 @@
-import { useNavigate } from 'react-router-dom';
-import * as userService from '../../utilities/users-service'
+import NoteCard from '../../components/NoteCard/NoteCard'
 import { useState, useEffect } from 'react'
 import * as notesAPI from '../../utilities/notes-api'
+import NotesDetailsPage from '../NotesDetailsPage/NotesDetailsPage'
 
 
 export default function NotesPage(){
@@ -17,13 +17,13 @@ export default function NotesPage(){
     }, [])
     
     const notesList = notes.length ? notes.map((note) => {
-        return (<p>{note.name}</p>)
+        return (<NoteCard note={note}/>)
     }) : <p>Loading</p>
 
     return (
         <>        
-            <h1>Notes</h1>
-            <a>{notesList}</a>
+            <h1>Saved Names</h1>
+            {notesList} 
         </>
     )
 }
