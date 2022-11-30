@@ -15,6 +15,7 @@ export default function NotesPage(){
         }
         getNotes()
     }, [])
+    console.log(notes)
     
     const notesList = notes.length ? notes.map((note) => {
         return (<NoteCard note={note}/>)

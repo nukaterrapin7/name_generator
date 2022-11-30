@@ -1,18 +1,16 @@
 const Detail = require('../../models/detail')
+const Note = require('../../models/note');
+
 
 module.exports = {
-    getAll,
     addDetail,
 }
 
-// async function getAll(req, res) {
-//     const details = await Detail.find({user: req.user._id})
-//     console.log(details)
-//     res.json(details)
-// }
-
 async function addDetail(req, res) {
-    const ideas = await Detail.create({user:req.user._id, name:req.body.name, detail:req.body.detail})
-    console.log(ideas)
-    res.json(ideas)
+    console.log("details")
+    // console.log(req.params.id, req.body)
+    const note = await Note.findById(req.params.id)
+    note.details = req.body.detail
+    await note.save()
+    res.json(note)
 }

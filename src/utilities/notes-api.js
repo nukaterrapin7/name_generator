@@ -11,5 +11,5 @@ export function addNote(name) {
 };
 
 export function getOne(id) {
-    return sendRequest(`${BASE_URL}/notes/details`, 'GET', {id})
+    return sendRequest(`${BASE_URL}/details/${id}`)
 }

@@ -18,7 +18,9 @@ async function addNote(req, res) {
     res.json(record)
 }
 
-async function getOne(req, res) {
-    const details = await Note.find({user:req.params._id})
+async function getOne(req, res) {    
+    
+    const details = await Note.findById(req.params.id)
+    console.log("details", details)
     res.json(details)
 }
