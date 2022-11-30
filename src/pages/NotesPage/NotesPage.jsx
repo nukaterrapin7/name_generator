@@ -1,7 +1,7 @@
 import NoteCard from '../../components/NoteCard/NoteCard'
 import { useState, useEffect } from 'react'
 import * as notesAPI from '../../utilities/notes-api'
-import NotesDetailsPage from '../NotesDetailsPage/NotesDetailsPage'
+import './NotesPage.css';
 
 
 export default function NotesPage(){
@@ -23,7 +23,9 @@ export default function NotesPage(){
     return (
         <>        
             <h1>Saved Names</h1>
-            {notesList} 
+            <div className='notesList'>
+                {notesList} 
+            </div>
         </>
     )
 }

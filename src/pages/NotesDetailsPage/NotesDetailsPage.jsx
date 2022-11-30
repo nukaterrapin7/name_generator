@@ -20,8 +20,13 @@ export default function NotesDetailsPage() {
     return (
         <>
             <h1>Note Details</h1>
-            <form></form>
+            <form>
+                <input type="text" placeholder="Enter notes here"/>
+                <br/>
+                <button>Save Notes</button>
+                <button>Delete Notes</button>
+                <button>Edit Notes</button>
+            </form>
         </>
-    )
-    
+    )   
 }
