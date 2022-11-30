@@ -32,14 +32,22 @@ export default function NotesDetailsPage() {
         setDetails(event.target.value)
     }
 
+    const handleDelete = async (event) => {
+        event.preventDefault()
+        await detailsAPI.deleteDetail(id, details)
+        navigate("/notes")
+    }
+
+
     return (
         <>
             <h1>Note Details</h1>
+            <p>{details}</p>
             <form>
                 <input type="text" placeholder="Enter notes here" value={details} onChange={handleChange}/>
                 <br/>
                 <button onClick={handleSave}>Save Notes</button>
-                <button>Delete Notes</button>
+                <button onClick={handleDelete}>Delete Notes</button>
             </form>
         </>
     )   

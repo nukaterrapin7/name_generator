@@ -19,7 +19,7 @@ export default function NotesPage(){
     
     const notesList = notes.length ? notes.map((note) => {
         return (<NoteCard note={note}/>)
-    }) : <p>Loading</p>
+    }) : <p>No Saved Names Yet</p>
 
     return (
         <>        

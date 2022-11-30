@@ -9,3 +9,7 @@ export function getOne(id) {
 export function addDetail(id, detail) {
     return sendRequest(`${BASE_URL}/${id}`, 'POST', {detail})
 };
+
+export function deleteDetail(id, detail) {
+    return sendRequest(`${BASE_URL}/${id}`, 'DELETE', {detail})
+}
