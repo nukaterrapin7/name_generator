@@ -55,12 +55,16 @@ export default function ResultsPage(){
     }
 
     return (
-        <>        
-            <h1>Results</h1>
-            <p>{name}</p>
-            <button onClick={saveName}>Save Name</button>
-            <button onClick={getNewName}>Generate Name</button>
-            <br/>
+        <>  
+            <div className='generation'>      
+                <h1>Results</h1>
+                <div className='result'>
+                    <p>{name}</p>
+                </div>
+                <button onClick={saveName} className='save-button'>Save Name</button>
+                <button onClick={getNewName} className='generate-button'>Generate Name</button>
+                <br/>
+            </div>
         </>
     )
 }

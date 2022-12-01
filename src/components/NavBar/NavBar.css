@@ -1,8 +1,15 @@
 a {
     text-decoration: none;
-    color: green;
+    color: #8A96A7;
+    font-size: 25px;
+}
+
+a:hover {
+    color: white;
 }
 
 nav {
-    color: red;
+    color: #8A96A7;
+    background-color: #4E5142;
+    font-size: 25px;
 }
