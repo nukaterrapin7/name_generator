@@ -1,32 +1,54 @@
-import NoteCard from '../../components/NoteCard/NoteCard'
-import { useState, useEffect } from 'react'
-import * as notesAPI from '../../utilities/notes-api'
-import './NotesPage.css';
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import * as savedNamesAPI from '../../utilities/savedNames-api'
+import * as notesAPI from '../../utilities/notes.api'
+import { useNavigate } from "react-router-dom";
 
 
-export default function NotesPage(){
+export default function NotesPage() {
 
-    const [notes, setNotes] = useState([])
+    let { id } = useParams()
+
+    const [notes, setNotes] = useState('')
+    const navigate = useNavigate()
 
     useEffect(() => {
-        async function getNotes() {
-            const notes = await notesAPI.getAll()
-            setNotes(notes)
+        console.log(id)
+        async function getSavedNames() {
+            const savedName = await savedNamesAPI.getOne(id)
+            console.log("savedName", savedName)
+            if (savedName) {setNotes(savedName.notes)}
         }
-        getNotes()
+        getSavedNames()
     }, [])
-    console.log(notes)
-    
-    const notesList = notes.length ? notes.map((note) => {
-        return (<NoteCard note={note}/>)
-    }) : <p>No Saved Names Yet</p>
+
+    const handleSave = async (event) => {
+        event.preventDefault()
+        await notesAPI.addNote(id, notes)
+        navigate("/savedNames")
+    }
+
+    const handleChange = (event) => {
+        setNotes(event.target.value)
+    }
+
+    const handleDelete = async (event) => {
+        event.preventDefault()
+        await notesAPI.deleteNote(id, notes)
+        navigate("/savedNames")
+    }
+
 
     return (
-        <>        
-            <h1>Saved Names</h1>
-            <div className='notesList'>
-                {notesList} 
-            </div>
+        <>
+            <h1>Notes</h1>
+            <p>{notes}</p>
+            <form>
+                <input type="text" placeholder="Enter notes here" value={notes} onChange={handleChange}/>
+                <br/>
+                <button onClick={handleSave}>Save Notes</button>
+                <button onClick={handleDelete}>Delete Notes</button>
+            </form>
         </>
-    )
+    )   
 }

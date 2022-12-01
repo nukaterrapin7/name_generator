@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import * as notesAPI from '../../utilities/notes-api'
+import * as savedNamesAPI from '../../utilities/savedNames-api'
 
 
 export default function ResultsPage(){
@@ -48,7 +48,7 @@ export default function ResultsPage(){
     }
 
     async function saveName() {
-        await notesAPI.addNote(name)
+        await savedNamesAPI.addSavedName(name)
         console.log(generateName.name)
     }
 

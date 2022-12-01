@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
 
-export default function NoteCard({ note }) {
+export default function NoteCard({ savedName }) {
     return (
         <>
-            <Link to={`/notes/${note._id}`} className="notes-link">
+            <Link to={`/savedNames/${savedName._id}`} className="savedName-link">
                 <div className="generatedName">
-                    {note.name}
+                    {savedName.name}
                 </div>
             </Link>
         </>

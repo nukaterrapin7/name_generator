@@ -2,10 +2,8 @@ const express = require('express');
 const router = express.Router();
 const notesCtrl = require('../../controllers/api/notes')
 
-router.get('/notes', notesCtrl.getAll);
+router.post('/:id', notesCtrl.addNote);
 
-router.post('/notes', notesCtrl.addNote);
-
-router.get('/details/:id', notesCtrl.getOne);
+router.delete('/:id', notesCtrl.delete);
 
 module.exports = router;

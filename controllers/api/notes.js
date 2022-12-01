@@ -1,26 +1,22 @@
-const Note = require('../../models/note');
+const savedName = require('../../models/savedName');
+
 
 module.exports = {
-    getAll,
     addNote,
-    getOne,
-};
-
-async function getAll(req, res) {
-    const notes = await Note.find({user: req.user._id})
-    console.log(notes)
-    res.json(notes)
+    delete: deleteNote
 }
 
 async function addNote(req, res) {
-    const record = await Note.create({user:req.user._id, name:req.body.name})
-    console.log(record)
-    res.json(record)
+    const saved = await savedName.findById(req.params.id)
+    saved.notes = req.body.note
+    await saved.save()
+    res.json(saved)
 }
 
-async function getOne(req, res) {    
-    
-    const details = await Note.findById(req.params.id)
-    console.log("details", details)
-    res.json(details)
+async function deleteNote(req, res) {
+    const saved = await savedName.findById(req.params.id)
+    saved.notes = ''
+    await saved.save()
+    console.log(saved)
+    res.json(saved)
 }

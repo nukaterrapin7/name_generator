@@ -5,8 +5,8 @@ import { getUser } from '../../utilities/users-service'
 import AuthPage from '../AuthPage/AuthPage'
 import NavBar from '../../components/NavBar/NavBar'
 import ResultsPage from '../ResultsPage/ResultsPage';
+import SavedNamesPage from '../SavedNamesPage/SavedNamesPage'
 import NotesPage from '../NotesPage/NotesPage'
-import NotesDetailsPage from '../NotesDetailsPage/NotesDetailsPage'
 
 export default function App() {
   const [user, setUser] = useState(getUser())
@@ -18,8 +18,8 @@ export default function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
             <Route path="/results" element={<ResultsPage />} />
-            <Route path="/notes" element={<NotesPage />} />
-            <Route path="/notes/:id" element={<NotesDetailsPage />}/>
+            <Route path="/savedNames" element={<SavedNamesPage />} />
+            <Route path="/savedNames/:id" element={<NotesPage />}/>
             <Route path="/*" element={<ResultsPage />} />
           </Routes>
         </>
