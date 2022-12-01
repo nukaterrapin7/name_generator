@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import * as savedNamesAPI from '../../utilities/savedNames-api'
 import * as notesAPI from '../../utilities/notes.api'
 import { useNavigate } from "react-router-dom";
+import './NotesPage.css';
 
 
 export default function NotesPage() {
@@ -39,14 +40,15 @@ export default function NotesPage() {
 
     return (
         <>
-            <h1>Notes</h1>
-            <p>{notes}</p>
-            <form>
-                <input type="text" placeholder="Enter notes here" value={notes} onChange={handleChange}/>
-                <br/>
-                <button onClick={handleSave}>Save Notes</button>
-                <button onClick={handleDelete}>Delete Notes</button>
-            </form>
+            <div className="notes-form">
+                <h1>Notes</h1>
+                <p>{notes}</p>
+                <form>
+                    <textarea type="text" placeholder="Enter notes here" value={notes} onChange={handleChange} className='input-notes'/>
+                </form>
+                <button onClick={handleSave} className='save-notes-button'>Save Notes</button>
+                <button onClick={handleDelete} className='delete-notes-button'>Delete Notes</button>
+            </div>
         </>
     )   
 }

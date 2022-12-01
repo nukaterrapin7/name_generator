@@ -21,10 +21,13 @@ export default function SavedNamePage(){
     }) : <p>No Saved Names Yet</p>
 
     return (
-        <>        
-            <h1>Saved Names</h1>
-            <div className='savedNamesList'>
-                {savedNamesList} 
+        <>  
+            <div className='saves'>      
+                <h1>Saved Names</h1>
+                <h3>Click on a saved name to add notes to specific names.</h3>
+                <div className='savedNamesList'>
+                    {savedNamesList} 
+                </div>
             </div>
         </>
     )

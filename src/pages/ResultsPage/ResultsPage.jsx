@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import * as savedNamesAPI from '../../utilities/savedNames-api'
+import './ResultsPage.css';
 
 
 export default function ResultsPage(){
@@ -58,9 +59,14 @@ export default function ResultsPage(){
         <>  
             <div className='generation'>      
                 <h1>Results</h1>
-                <div className='result'>
-                    <p>{name}</p>
-                </div>
+                <h3>Welcome to the name generator.  
+                </h3>
+                <br/>
+                <h3>
+                Clicking on the "Generate Name" button will make a new randomized name, that you can save for future use in your stories when you click on the "Save Name" button.
+                </h3>
+                <br/>
+                <p className='result'>{name}</p>
                 <button onClick={saveName} className='save-button'>Save Name</button>
                 <button onClick={getNewName} className='generate-button'>Generate Name</button>
                 <br/>

@@ -38,39 +38,3 @@
     transform: rotate(360deg);
   }
 }
-
-.generation {
-  background-color: #49566A;
-  width: 400px;
-  margin: auto;
-}
-
-.result {
-  font-size: 20px;
-  color: #83B3EE;
-}
-
-.save-button {
-  color: #83B3EE;
-  background-color: #7F7230;
-}
-
-.save-button:hover {
-  background-color: #49566A;
-  color: white;
-}
-
-.generate-button {
-  color: #83B3EE;
-  background-color: #7F7230;
-}
-
-.generate-button:hover {
-  background-color: #49566A;
-  color: white;
-}
-
-h1 {
-  font-size: 45px;
-  color: #83B3EE;
-}

@@ -1,0 +1,40 @@
+.generation {
+    background-color: #49566A;
+    width: 50vw;
+    margin: auto;
+    border-radius: 60px;
+  }
+  
+.result {
+font-size: 35px;
+color: #83B3EE;
+}
+
+.save-button {
+color: #f5f5f5;
+background-color: #7F7230;
+}
+
+.save-button:hover {
+background-color: #49566A;
+color: #83B3EE;
+}
+
+.generate-button {
+color: #f5f5f5;
+background-color: #7F7230;
+}
+
+.generate-button:hover {
+background-color: #49566A;
+color: #83B3EE;
+}
+
+h1 {
+font-size: 45px;
+color: #83B3EE;
+}
+
+h3 {
+color: #f5f5f5;
+}
