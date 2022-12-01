@@ -6,45 +6,38 @@ import './ResultsPage.css';
 export default function ResultsPage(){
     const [name, setName] = useState(generateName())
     
-    function getRandom(min, max) {
-          return Math.floor(Math.random() * (max - min)) + min;
+    function pickRandom(list) {
+        return list[Math.floor(Math.random() * list.length)];
     }
 
-    function generateName() {
-        let firstName = [
-            'Bob',
-            'Steve',
-            'Glen',
-            'Diane',
-            'Susan',
-            'Katie'
-        ]
-        let lastName = [
-            'Smith',
-            'Jones',
-            'Brown',
-            'Cruise',
-            'Frost',
-            'King'
-        ]
-        let titleName = [
-            'Destroyer',
-            'Doom-Bringer',
-            'Gardener',
-            'Wretched',
-            'Forgotten',
-            'Timid'
-        ]
+    function fetchNames(nameType) {
+        let names = [];
+
+        switch (nameType) {
+            case 'female':
+                names = ['Berthefried', 'Tatiana', 'Hildeberg'];
+                break;
+            case 'male':
+                names = ['Bilbo', 'Frodo', 'Theodulph'];
+                break;
+            case 'surnames':
+                names = ['Baggins', 'Lightfoot', 'Boulderhill'];
+                break;
+            case 'titles':
+                names = ['Of The Nine Fingers', 'The Bold', 'The Daft'];
+                break;
+        }
+        return { data: names };
+    }
     
-
-    const name = 
-        (firstName[getRandom(0, firstName.length + 1)]) +
-        " " +
-        (lastName[getRandom(0, lastName.length + 1)]) +
-        " " + "the" + " " +
-        (titleName[getRandom(0, titleName.length + 1)]);
-
-        return name;
+    function generateName(gender) {
+        const firstNames = fetchNames(gender || pickRandom(['male', 'female']));
+        const lastNames = fetchNames('surnames');
+        const titleNames = fetchNames('titles');
+        const firstName = pickRandom(firstNames.data);
+        const lastName = pickRandom(lastNames.data);
+        const titleName = pickRandom(titleNames.data);
+        return `${firstName} ${lastName} ${titleName}`
     }
 
     async function saveName() {
