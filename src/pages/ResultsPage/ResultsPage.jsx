@@ -43,13 +43,11 @@ export default function ResultsPage(){
         " " + "the" + " " +
         (titleName[getRandom(0, titleName.length + 1)]);
 
-        console.log(name);
         return name;
     }
 
     async function saveName() {
         await savedNamesAPI.addSavedName(name)
-        console.log(generateName.name)
     }
 
     function getNewName() {

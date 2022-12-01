@@ -13,10 +13,8 @@ export default function NotesPage() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        console.log(id)
         async function getSavedNames() {
             const savedName = await savedNamesAPI.getOne(id)
-            console.log("savedName", savedName)
             if (savedName) {setNotes(savedName.notes)}
         }
         getSavedNames()

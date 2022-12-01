@@ -15,7 +15,6 @@ export default function SavedNamePage(){
         }
         getSavedNames()
     }, [])
-    console.log(savedNames)
     
     const savedNamesList = savedNames.length ? savedNames.map((savedName, key) => {
         return (<NoteCard key={key} savedName={savedName}/>)

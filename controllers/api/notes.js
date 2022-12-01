@@ -17,6 +17,5 @@ async function deleteNote(req, res) {
     const saved = await savedName.findById(req.params.id)
     saved.notes = ''
     await saved.save()
-    console.log(saved)
     res.json(saved)
 }
