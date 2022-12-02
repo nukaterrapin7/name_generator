@@ -7,14 +7,14 @@ A favorite tool for me to use is a name generator, so I decided to try making my
 ![](public/Screenshot.png)
 
 # Technologies used:
--MongoDB
--Express
--React
--Node
+- MongoDB
+- Express
+- React
+- Node
 
 # Planned Features
--Categories of Names
--Genders for names
--A generator of only titles
--A generator for location names
--A generator for item names
+- Categories of Names
+- Genders for names
+- A generator of only titles
+- A generator for location names
+- A generator for item names
